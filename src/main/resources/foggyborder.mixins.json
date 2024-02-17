@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.louis.foggyborder.client.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "plugin": "dev.louis.foggyborder.client.mixin.FoggyBorderMixinPlugin",
+  "client": [
+    "BackgroundRendererMixin",
+    "WorldRendererMixin",
+    "compatibility.foglooksgoodnow.FogLooksGoodNowCompatibilityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
