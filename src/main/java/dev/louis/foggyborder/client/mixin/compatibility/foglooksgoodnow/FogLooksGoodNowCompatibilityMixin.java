@@ -24,7 +24,7 @@ public class FogLooksGoodNowCompatibilityMixin {
     )
     @ModifyArg(
             method = "@MixinSquared:Handler",
-            at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderFogStart(F)V")
+            at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderFogStart(F)V", remap = false)
     )
     private static float modifyFogStart(float shaderFogStart) {
         var player = MinecraftClient.getInstance().player;
@@ -39,7 +39,7 @@ public class FogLooksGoodNowCompatibilityMixin {
     )
     @ModifyArg(
             method = "@MixinSquared:Handler",
-            at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderFogEnd(F)V")
+            at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderFogEnd(F)V", remap = false)
     )
     private static float modifyFogEnd(float shaderFogStart) {
         var player = MinecraftClient.getInstance().player;
