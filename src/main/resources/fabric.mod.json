@@ -4,12 +4,15 @@
   "version": "${version}",
   "name": "FoggyBorder",
   "description": "",
-  "authors": [],
+  "authors": [
+    "Dev0Louis"
+  ],
   "contact": {
-    "repo": "https://github.com/cxx34/FoggyBorder"
+    "repo": "https://github.com/dev0louis/FoggyBorder"
   },
   "license": "MIT",
   "environment": "client",
+  "icon": "assets/foggyborder/icon.png",
   "entrypoints": {
     "client": [
       "dev.louis.foggyborder.client.FoggyBorder"
@@ -23,6 +26,7 @@
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
-    "minecraft": "${minecraft_version}"
+    "minecraft": "${minecraft_version}",
+    "yet_another_config_lib_v3": "*"
   }
 }
