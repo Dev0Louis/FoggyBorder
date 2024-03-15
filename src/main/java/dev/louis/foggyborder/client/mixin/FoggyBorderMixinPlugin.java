@@ -36,6 +36,8 @@ public class FoggyBorderMixinPlugin implements IMixinConfigPlugin {
                         FoggyBorder.LOGGER.error("Could not parse version.", e);
                         return false;
                     }
+                } else {
+                    return false;
                 }
             }
         }
