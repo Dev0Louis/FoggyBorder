@@ -6,8 +6,7 @@
   "plugin": "dev.louis.foggyborder.client.mixin.FoggyBorderMixinPlugin",
   "client": [
     "BackgroundRendererMixin",
-    "WorldRendererMixin",
-    "compatibility.foglooksgoodnow.FogLooksGoodNowCompatibilityMixin"
+    "WorldRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
