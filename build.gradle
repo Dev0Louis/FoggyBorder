@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -40,9 +40,10 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
     //modImplementation "maven.modrinth:fog-looks-good-now-fabric:+1.20.4"
-    include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.1.1")))
-    modImplementation("dev.isxander:yet-another-config-lib:3.5.0+1.21-fabric")
+    modImplementation("dev.isxander:yet-another-config-lib:3.6.2+1.21.2-fabric")
     modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
 
 }
@@ -87,6 +88,10 @@ jar {
     from("LICENSE") {
         rename { "${it}_${project.archivesBaseName}"}
     }
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/foggyborder.accesswidener")
 }
 
 // configure the maven publication

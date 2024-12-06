@@ -25,22 +25,6 @@ public class FoggyBorderMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        var array = mixinClassName.split("\\.");
-        if(array[array.length - 3].equals("compatibility")) {
-            if(array[array.length - 2].equals("foglooksgoodnow")) {
-                var modContainer = FabricLoader.getInstance().getModContainer("fog-looks-good-now");
-                if(modContainer.isPresent()) {
-                    try {
-                        return modContainer.get().getMetadata().getVersion().compareTo(SemanticVersion.parse("2.2.0")) <= 0;
-                    } catch (VersionParsingException e) {
-                        FoggyBorder.LOGGER.error("Could not parse version.", e);
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
-            }
-        }
         return true;
     }
 

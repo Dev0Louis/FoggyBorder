@@ -24,6 +24,7 @@
   "mixins": [
     "foggyborder.mixins.json"
   ],
+  "accessWidener": "foggyborder.accesswidener",
   "depends": {
     "minecraft": ">=1.21",
     "fabricloader": ">=${loader_version}",
