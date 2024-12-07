@@ -37,6 +37,8 @@ public class BackgroundRendererMixin {
             //color.x = red;
             color.y = color.y * mult;
             color.z = color.z * mult;
+
+            //color.w = Math.max(color.w, 0.75f * mult);
         }
     }
 
