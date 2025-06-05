@@ -3,12 +3,13 @@
   "id": "foggyborder",
   "version": "${version}",
   "name": "FoggyBorder",
-  "description": "",
+  "description": "A thick Fog appears as you wander off to far, it seems harmless. But is it?",
   "authors": [
     "Dev0Louis"
   ],
   "contact": {
-    "repo": "https://github.com/dev0louis/FoggyBorder"
+    "repo": "https://github.com/dev0louis/FoggyBorder",
+    "email": "louis@trans.fish"
   },
   "license": "MIT",
   "environment": "client",
@@ -26,7 +27,7 @@
   ],
   "accessWidener": "foggyborder.accesswidener",
   "depends": {
-    "minecraft": ">=1.21.4",
+    "minecraft": ">=1.21.5",
     "fabricloader": ">=${loader_version}",
     "yet_another_config_lib_v3": "*"
   }

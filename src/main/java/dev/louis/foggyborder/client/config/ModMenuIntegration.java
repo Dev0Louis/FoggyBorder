@@ -6,12 +6,8 @@ import dev.louis.foggyborder.client.FoggyBorder;
 
 public class ModMenuIntegration implements ModMenuApi {
 
-    static {
-        System.out.println("??????");
-    }
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        System.out.println("???");
         return FoggyBorder.config::generateScreen;
     }
 }
