@@ -1,2 +1,2 @@
 accessWidener v2 named
-accessible class net/minecraft/client/render/BackgroundRenderer$FogData
+accessible class net/minecraft/client/render/chunk/RenderedChunk

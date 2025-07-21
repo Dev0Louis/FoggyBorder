@@ -4,5 +4,6 @@
   "foggyborder.yacl.option.fog-start-distance-multiplier": "Fog Start Distance Multiplier",
   "foggyborder.yacl.option.fog-end-distance-multiplier": "Fog End Distance Multiplier",
   "foggyborder.yacl.option.minimum-fog-start-distance": "Minimum Fog Start Distance",
-  "foggyborder.yacl.option.minimum-fog-end-distance": "Minimum Fog End Distance"
+  "foggyborder.yacl.option.minimum-fog-end-distance": "Minimum Fog End Distance",
+  "foggyborder.yacl.option.dont-render-behind-border": "Don't render behind border"
 }

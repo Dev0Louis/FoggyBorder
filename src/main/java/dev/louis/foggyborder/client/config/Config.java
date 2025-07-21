@@ -11,6 +11,7 @@ import dev.isxander.yacl3.api.controller.IntegerSliderControllerBuilder;
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
 import dev.louis.foggyborder.client.FoggyBorder;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
@@ -27,10 +28,9 @@ public class Config {
     private static final Config DEFAULT_CONFIG = new Config();
 
     public boolean disableWorldborder = true;
-    public float fogStartDistanceMultiplier = 0.7f;
+    public boolean dontRenderBehindBorder = true;
     public float fogEndDistanceMultiplier = 1;
-    public float minimumFogStartDistance = 0.8f;
-    public float minimumFogEndDistance = 1.5f;
+    public float minimumFogEndDistance = 2f;
 
     public void write() {
         try {
@@ -70,16 +70,6 @@ public class Config {
                             )
                             .option(
                                     floatSlideOption(
-                                            "fog-start-distance-multiplier",
-                                            0.7f,
-                                            0.1f,
-                                            2f,
-                                            () -> this.fogStartDistanceMultiplier,
-                                            (value) -> this.fogStartDistanceMultiplier = value
-                                    )
-                            )
-                            .option(
-                                    floatSlideOption(
                                             "fog-end-distance-multiplier",
                                             1f,
                                             0.1f,
@@ -90,22 +80,25 @@ public class Config {
                             )
                             .option(
                                     floatSlideOption(
-                                            "minimum-fog-start-distance",
-                                            0.8f,
-                                            0.1f,
-                                            2f,
-                                            () -> this.minimumFogStartDistance,
-                                            (value) -> this.minimumFogStartDistance = value
-                                    )
-                            )
-                            .option(
-                                    floatSlideOption(
                                             "minimum-fog-end-distance",
                                             1.5f,
                                             0.1f,
-                                            2f,
+                                            20f,
                                             () -> this.minimumFogEndDistance,
                                             (value) -> this.minimumFogEndDistance = value
+                                    )
+                            )
+                            .option(
+                                    booleanOption(
+                                            "dont-render-behind-order",
+                                            true,
+                                            () -> this.dontRenderBehindBorder,
+                                            (value) -> {
+                                                if (MinecraftClient.getInstance().worldRenderer != null) {
+                                                    MinecraftClient.getInstance().worldRenderer.reload();
+                                                }
+                                                this.dontRenderBehindBorder = value;
+                                            }
                                     )
                             )
                             .build()
