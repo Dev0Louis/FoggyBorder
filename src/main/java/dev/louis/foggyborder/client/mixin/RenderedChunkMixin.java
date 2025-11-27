@@ -23,7 +23,7 @@ public class RenderedChunkMixin {
             method = "getBlockEntity"
     )
     public BlockEntity dontHaveBlockEntitiesOutsideOfBorder(BlockPos pos, Operation<BlockEntity> original) {
-        if (FoggyBorder.config.dontRenderBehindBorder && !MinecraftClient.getInstance().player.getWorld().getWorldBorder().contains(pos)) {
+        if (FoggyBorder.config.dontRenderBehindBorder && !MinecraftClient.getInstance().player.getEntityWorld().getWorldBorder().contains(pos)) {
             return null;
         }
         return original.call(pos);
@@ -34,7 +34,7 @@ public class RenderedChunkMixin {
             at = @At(value = "FIELD", target = "Lnet/minecraft/client/render/chunk/RenderedChunk;blockPalette:Lnet/minecraft/world/chunk/PalettedContainer;")
     )
     public @Nullable PalettedContainer<BlockState> dontHaveBlockEntitiesOutsideOfBorder(@Nullable PalettedContainer<BlockState> original, @Local(argsOnly = true) BlockPos pos) {
-        if (FoggyBorder.config.dontRenderBehindBorder && !MinecraftClient.getInstance().player.getWorld().getWorldBorder().contains(pos.getX(), pos.getZ(), 4)) {
+        if (FoggyBorder.config.dontRenderBehindBorder && !MinecraftClient.getInstance().player.getEntityWorld().getWorldBorder().contains(pos.getX(), pos.getZ(), 4)) {
             return null;
         }
         return original;

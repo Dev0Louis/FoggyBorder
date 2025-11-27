@@ -90,7 +90,7 @@ public class Config {
                             )
                             .option(
                                     booleanOption(
-                                            "dont-render-behind-order",
+                                            "dont-render-behind-border",
                                             true,
                                             () -> this.dontRenderBehindBorder,
                                             (value) -> {
