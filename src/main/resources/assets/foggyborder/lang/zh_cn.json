@@ -1,0 +1,9 @@
+{
+  "foggyborder.yacl.category.client": "客户端设置",
+  "foggyborder.yacl.option.disable-worldborder": "禁用世界边界",
+  "foggyborder.yacl.option.fog-start-distance-multiplier": "雾起始距离乘数",
+  "foggyborder.yacl.option.fog-end-distance-multiplier": "雾终止距离乘数",
+  "foggyborder.yacl.option.minimum-fog-start-distance": "最小雾起始距离",
+  "foggyborder.yacl.option.minimum-fog-end-distance": "最小雾终止距离",
+  "foggyborder.yacl.option.dont-render-behind-border": "不在边界后渲染"
+}
