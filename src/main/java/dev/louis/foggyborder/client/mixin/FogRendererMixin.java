@@ -19,12 +19,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value = FogRenderer.class)
 public class FogRendererMixin {
     @Inject(
-            method = "applyFog(Lnet/minecraft/client/render/Camera;IZLnet/minecraft/client/render/RenderTickCounter;FLnet/minecraft/client/world/ClientWorld;)Lorg/joml/Vector4f;",
+            method = "applyFog(Lnet/minecraft/client/render/Camera;ILnet/minecraft/client/render/RenderTickCounter;FLnet/minecraft/client/world/ClientWorld;)Lorg/joml/Vector4f;",
             at = @At(value = "FIELD", target = "Lnet/minecraft/client/render/fog/FogData;renderDistanceEnd:F", ordinal = 0)
     )
-    private static void modifyFogStartAndEnd(Camera camera, int viewDistance, boolean thick, RenderTickCounter tickCounter, float skyDarkness, ClientWorld world, CallbackInfoReturnable<Vector4f> cir, @Local FogData fogData, @Local Vector4f color) {
+    private static void modifyFogStartAndEnd(Camera camera, int viewDistance, RenderTickCounter renderTickCounter, float f, ClientWorld clientWorld, CallbackInfoReturnable<Vector4f> cir, @Local FogData fogData, @Local Vector4f color) {
         var worldBorder = MinecraftClient.getInstance().world.getWorldBorder();
-        var distance = worldBorder.getDistanceInsideBorder(camera.getPos().x, camera.getPos().z);
+        var distance = worldBorder.getDistanceInsideBorder(camera.getCameraPos().x, camera.getCameraPos().z);
 
         fogData.environmentalEnd =
                 (float) Math.min(Math.max(distance * FoggyBorder.config.fogEndDistanceMultiplier, FoggyBorder.config.minimumFogEndDistance), fogData.environmentalEnd);
